@@ -1,16 +1,17 @@
 import * as React from "react";
-import {ReactElement, ReactNode} from "react";
 import {connect, Dispatch} from "react-redux";
 import {Nav} from "react-bootstrap";
+import {NavProps} from "react-bootstrap/lib/Nav";
 
 interface Arguments {
-    children: ReactNode[];
     require: string;
     roles: string;
     dispatch: Dispatch<object>;
 }
 
-const PrivateNav = ({children, require, roles, dispatch, ...rest}: Arguments): ReactElement<Arguments> | null => (
+interface PrivateNavArguments extends Arguments, NavProps {}
+
+const PrivateNav = ({children, require, roles, dispatch, ...rest}: PrivateNavArguments) => (
     roles.includes(require) ? (
         <Nav {...rest}>
             {children}
@@ -18,8 +19,14 @@ const PrivateNav = ({children, require, roles, dispatch, ...rest}: Arguments): R
     ) : null
 );
 
-const mapStateToProps = (state: { auth: { roles: string } }) => {
-    const {roles} = state.auth;
+interface AuthState {
+    auth: {
+        roles: string;
+    };
+}
+
+const mapStateToProps = (state: AuthState) => {
+    const roles = state.auth.roles;
 
     return {roles};
 };
