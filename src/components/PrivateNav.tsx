@@ -9,7 +9,8 @@ interface Arguments {
     dispatch: Dispatch<object>;
 }
 
-interface PrivateNavArguments extends Arguments, NavProps {}
+interface PrivateNavArguments extends Arguments, NavProps {
+}
 
 const PrivateNav = ({children, require, roles, dispatch, ...rest}: PrivateNavArguments) => (
     roles.includes(require) ? (
@@ -26,7 +27,7 @@ interface AuthState {
 }
 
 const mapStateToProps = (state: AuthState) => {
-    const roles = state.auth.roles;
+    const roles = state.auth ? state.auth.roles : "";
 
     return {roles};
 };
