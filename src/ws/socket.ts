@@ -3,11 +3,6 @@ import {setConnected} from "../state/Ws/actions";
 
 class Ws {
     socket: WebSocket;
-    tried: number;
-
-    constructor() {
-        this.tried = 0;
-    }
 
     Open(uri: string) {
         this.socket = new WebSocket(uri);
@@ -31,18 +26,11 @@ class Ws {
         };
 
         this.socket.onclose = ev => {
-            console.log(ev);
-            if (this.tried > 5) {
-                this.tried = 0;
-                setTimeout(
-                    () => {
-                        this.Open(uri);
-                    },
-                    5000);
-            } else {
-                this.tried++;
-                this.Open(uri);
-            }
+            setTimeout(
+                () => {
+                    this.Open(uri);
+                },
+                1000);
         };
     }
 
