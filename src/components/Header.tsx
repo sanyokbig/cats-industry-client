@@ -1,6 +1,7 @@
 import * as React from "react";
-import {Collapse, Nav, Navbar, NavbarBrand, NavbarToggler, NavItem, NavLink} from "reactstrap";
+import {Collapse, Nav, Navbar, NavbarBrand, NavbarToggler, NavItem, NavLink, Button} from "reactstrap";
 import {Link} from "react-router-dom";
+import {login} from "../auth/login";
 
 export default class Header extends React.Component {
     state: {
@@ -24,16 +25,19 @@ export default class Header extends React.Component {
 
     render() {
         return (
-            <Navbar color="primary" dark expand="md" >
+            <Navbar color="primary" dark expand="md">
                 <NavbarBrand tag={Link} to="/">Cats-industry</NavbarBrand>
+                <NavbarToggler onClick={this.toggle}/>
                 <Collapse isOpen={this.state.isOpen} navbar>
                     <Nav className="mr-auto" navbar>
                         <NavItem>
                             <NavLink tag={Link} to="/settings">Settings</NavLink>
                         </NavItem>
+                        <NavItem>
+                            <Button onClick={login}>Login</Button>
+                        </NavItem>
                     </Nav>
                 </Collapse>
-                <NavbarToggler onClick={this.toggle}/>
             </Navbar>
         );
     }

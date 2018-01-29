@@ -1,15 +1,15 @@
-import * as React from 'react';
-import './App.css';
-import {Link} from 'react-router-dom';
-import Routes from './routes';
-import './ws/socket';
+import * as React from "react";
+import "./App.css";
+import Routes from "./routes";
+import Header from "./components/Header";
+import "./ws/socket";
+import "./bootstrap.css";
 
 class App extends React.Component {
     render() {
         return (
             <div className="App">
-                <Link to="/jobs">>Jobs</Link>
-                <Link to="/settings">>Settings</Link>
+                <Header/>
                 <Routes/>
             </div>
         );

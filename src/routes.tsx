@@ -1,12 +1,10 @@
-import * as React from 'react';
-import {Switch, Route} from 'react-router-dom';
-import Jobs from './pages/Jobs';
-import Settings from './pages/Settings';
+import * as React from "react";
+import {Route, Switch} from "react-router-dom";
+import JobsPage from "./pages/JobsPage";
 
 const routes = () => (
     <Switch>
-        <Route path="/jobs" exact component={Jobs}/>
-        <Route path="/settings" exact component={Settings}/>
+        <Route path="/" exact component={JobsPage}/>
     </Switch>
 );
 
