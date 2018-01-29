@@ -5,6 +5,7 @@ import {BrowserRouter} from "react-router-dom";
 import store from "./state/store";
 import App from "./App";
 import "./index.css";
+import "font-awesome/css/font-awesome.css";
 
 import registerServiceWorker from "./registerServiceWorker";
 

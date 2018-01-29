@@ -3,15 +3,18 @@ import {createStore} from "redux";
 import rootReducer from "./reducers";
 import {AuthState, initialState as authInit} from "./Auth/reducer";
 import {JobsState, initialState as jobsInit} from "./Jobs/reducer";
+import {WsState, initialState as wsInit} from "./Ws/reducer";
 
 export interface AppState {
     jobs: JobsState;
     auth: AuthState;
+    ws: WsState;
 }
 
 const init: AppState = {
     auth: authInit,
-    jobs: jobsInit
+    jobs: jobsInit,
+    ws: wsInit
 };
 
 export interface User {

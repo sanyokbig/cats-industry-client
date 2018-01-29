@@ -2,6 +2,7 @@ import * as React from "react";
 import {connect, Dispatch} from "react-redux";
 import {Nav} from "react-bootstrap";
 import {NavProps} from "react-bootstrap/lib/Nav";
+import {AppState} from "../state/generateStore";
 
 interface Arguments {
     require: string;
@@ -20,13 +21,7 @@ const PrivateNav = ({children, require, roles, dispatch, ...rest}: PrivateNavArg
     ) : null
 );
 
-interface AuthState {
-    auth: {
-        roles: string;
-    };
-}
-
-const mapStateToProps = (state: AuthState) => {
+const mapStateToProps = (state: AppState) => {
     const roles = state.auth ? state.auth.roles : "";
 
     return {roles};

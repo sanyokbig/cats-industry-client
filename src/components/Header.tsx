@@ -2,6 +2,7 @@ import * as React from "react";
 import {Collapse, Nav, Navbar, NavbarBrand, NavbarToggler, NavItem, NavLink, Button} from "reactstrap";
 import {Link} from "react-router-dom";
 import {login} from "../auth/login";
+import WsState from "./WsState";
 
 export default class Header extends React.Component {
     state: {
@@ -38,6 +39,7 @@ export default class Header extends React.Component {
                         </NavItem>
                     </Nav>
                 </Collapse>
+                <WsState/>
             </Navbar>
         );
     }
