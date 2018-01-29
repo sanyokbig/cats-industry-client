@@ -1,4 +1,4 @@
-import {User} from "../generateStore";
+import {User} from "../store";
 import {Action} from "redux";
 
 export interface AuthState {

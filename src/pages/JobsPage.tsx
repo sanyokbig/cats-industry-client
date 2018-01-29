@@ -1,5 +1,5 @@
 import * as React from "react";
-import {AppState} from "../state/generateStore";
+import {AppState} from "../state/store";
 import Jobs from "../components/Jobs";
 import {connect, Dispatch} from "react-redux";
 import {Job} from "../state/Jobs/reducer";

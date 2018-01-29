@@ -2,7 +2,7 @@ import * as React from "react";
 import {connect, Dispatch} from "react-redux";
 import {Nav} from "react-bootstrap";
 import {NavProps} from "react-bootstrap/lib/Nav";
-import {AppState} from "../state/generateStore";
+import {AppState} from "../state/store";
 
 interface Arguments {
     require: string;

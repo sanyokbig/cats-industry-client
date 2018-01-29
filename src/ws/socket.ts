@@ -1,10 +1,12 @@
-import store from "../state/store";
+import {getState, store} from "../state/store";
 import {setConnected} from "../state/Ws/actions";
 
 class Ws {
+    uri: string;
     socket: WebSocket;
 
     Open(uri: string) {
+        this.uri = uri;
         this.socket = new WebSocket(uri);
 
         this.socket.onopen = ev => {
@@ -26,6 +28,7 @@ class Ws {
         };
 
         this.socket.onclose = ev => {
+            store.dispatch(setConnected(false));
             setTimeout(
                 () => {
                     this.Open(uri);
@@ -35,8 +38,17 @@ class Ws {
     }
 
     Send(op: string, data?: any) {
+        if (!getState().ws.connected) {
+            alert("failed to send: ws closed");
+            return;
+        }
         const msg = JSON.stringify({op, data});
-        this.socket.send(msg);
+        try {
+            this.socket.send(msg);
+        } catch (e) {
+            console.log(e);
+            this.Open(this.uri);
+        }
     }
 }
 
