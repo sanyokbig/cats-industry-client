@@ -7,9 +7,9 @@ interface WsStateArguments {
 }
 
 const WsState = ({connected}: WsStateArguments) => (
-    <div>
+    <span>
         <i className={"fa fa-circle " + (connected ? "text-success" : "text-danger")}/>
-    </div>
+    </span>
 );
 
 const mapStateToProps = (state: AppState) => {
