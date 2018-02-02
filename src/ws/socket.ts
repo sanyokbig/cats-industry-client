@@ -11,15 +11,23 @@ class Ws {
 
         this.socket.onopen = ev => {
             store.dispatch(setConnected(true));
-            // Send stored UID to restore session form server
-            // Server generated UID first time client connects
+            const sid = localStorage.getItem("cats-industry.sid");
+
+            if (!sid) {
+                this.Send("get_sid");
+            } else {
+                this.Send("restore_session", {sid});
+            }
         };
 
         this.socket.onmessage = ev => {
             const msg = JSON.parse(ev.data);
-            switch (msg.op) {
+            switch (msg.type) {
                 case "login_uri":
-                    window.open(msg.data.uri, "eveAuth");
+                    window.open(msg.payload.uri, "eveAuth");
+                    break;
+                case "sid":
+                    localStorage.setItem("cats-industry.sid", msg.payload.sid);
                     break;
                 default:
                     console.log("unknown msg", ev.data);
@@ -37,12 +45,12 @@ class Ws {
         };
     }
 
-    Send(op: string, data?: any) {
+    Send(type: string, payload?: any) {
         if (!getState().ws.connected) {
             alert("failed to send: ws closed");
             return;
         }
-        const msg = JSON.stringify({op, data});
+        const msg = JSON.stringify({type, payload});
         try {
             this.socket.send(msg);
         } catch (e) {
