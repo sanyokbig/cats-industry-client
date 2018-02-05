@@ -9,7 +9,7 @@ const login = () => {
     const settings = "menubar=0,width=" + width + ",height=" + height + ",left=" + x + ",top=" + y;
     window.open("", "eveAuth", settings);
 
-    ws.Send("login_request", {scopes: "simple"});
+    ws.Send("login_request", {scope_set: "simple"});
 };
 
 export {
