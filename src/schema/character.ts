@@ -1,5 +1,5 @@
 export interface Character {
-    ID: number;
-    Name: string;
-    IsMain: boolean;
+    id: number;
+    name: string;
+    is_main: boolean;
 }

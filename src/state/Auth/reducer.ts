@@ -3,30 +3,28 @@ import {AuthActions} from "./actions";
 import {User} from "../../schema/user";
 
 export interface AuthState {
-    roles: string[];
     loggedIn: boolean;
-    loggedAs: User | null;
-    username: string;
+    user: User | null;
+    roles: string[];
 }
 
 export const initialState = {
     loggedIn: false,
-    loggedAs: null,
-    roles: [],
-    username: ""
+    user: null,
+    roles: []
 };
 
 interface AuthReducerAction {
     window?: Window | null;
-    username?: string;
+    user?: User;
 }
 
 export const reducer = (state: AuthState = initialState, action: Action & AuthReducerAction): AuthState => {
     switch (action.type) {
-        case AuthActions.AUTH_SET_CHARACTER:
+        case AuthActions.AUTH_SET_USER:
             return {
                 ...state,
-                username: action.username || ""
+                user: action.user || null
             };
         default:
             return state;

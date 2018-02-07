@@ -1,13 +1,15 @@
+import {User} from "../../schema/user";
+
 export enum AuthActions {
-    AUTH_SET_CHARACTER = "AUTH_SET_CHARACTER"
+    AUTH_SET_USER = "AUTH_SET_USER"
 }
 
-export interface SetCharacterAction {
-    type: AuthActions.AUTH_SET_CHARACTER;
-    username: string;
+export interface SetUserAction {
+    type: AuthActions.AUTH_SET_USER;
+    user: User;
 }
 
-export const setCharacter = (username: string): SetCharacterAction => ({
-    type: AuthActions.AUTH_SET_CHARACTER,
-    username
+export const setUser = (user: User): SetUserAction => ({
+    type: AuthActions.AUTH_SET_USER,
+    user
 });

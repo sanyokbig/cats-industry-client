@@ -1,6 +1,6 @@
 import {getState, store} from "../state/store";
 import {setConnected} from "../state/Ws/actions";
-import {setCharacter} from "../state/Auth/actions";
+import {HandleMessage} from "./handlers";
 
 class Ws {
     uri: string;
@@ -23,20 +23,7 @@ class Ws {
 
         this.socket.onmessage = ev => {
             const msg = JSON.parse(ev.data);
-            switch (msg.type) {
-                case "login_uri":
-                    window.open(msg.payload.uri, "eveAuth");
-                    break;
-                case "sid":
-                    localStorage.setItem("cats-industry.sid", msg.payload.sid);
-                    break;
-                case "restoration":
-                    store.dispatch(setCharacter(msg.payload.username));
-                    break;
-                default:
-                    console.log("unknown msg", ev.data);
-            }
-            console.log(ev.data);
+            HandleMessage(msg);
         };
 
         this.socket.onclose = ev => {
