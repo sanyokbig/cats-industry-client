@@ -2,7 +2,7 @@ import * as React from "react";
 import {AppState} from "../state/store";
 import Jobs from "../components/Jobs";
 import {connect, Dispatch} from "react-redux";
-import {Job} from "../state/Jobs/reducer";
+import {Job} from "../schema/job";
 
 interface JobsPageProps {
     list: Job[];

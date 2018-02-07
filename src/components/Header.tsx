@@ -32,7 +32,7 @@ export default class Header extends React.Component {
                 <Collapse isOpen={this.state.isOpen} navbar>
                     <Nav className="mr-auto" navbar>
                         <NavItem>
-                            <NavLink tag={Link} to="/settings">Settings</NavLink>
+                            <NavLink tag={Link} to="/user">User</NavLink>
                         </NavItem>
                         <NavItem>
                             <Button onClick={login}>Login</Button>

@@ -17,11 +17,6 @@ const initialState: AppState = {
     ws: wsInit
 };
 
-export interface User {
-    Id: number;
-    Name: string;
-}
-
 export const store = createStore(
     rootReducer, initialState,
     (<any> window).__REDUX_DEVTOOLS_EXTENSION__ && (<any> window).__REDUX_DEVTOOLS_EXTENSION__()

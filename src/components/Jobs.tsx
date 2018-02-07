@@ -2,7 +2,7 @@ import * as React from "react";
 import {Table} from "reactstrap";
 import {AppState} from "../state/store";
 import {connect} from "react-redux";
-import {Job} from "../state/Jobs/reducer";
+import {Job} from "../schema/job";
 
 interface SortableHeaderProps {
     children: string;

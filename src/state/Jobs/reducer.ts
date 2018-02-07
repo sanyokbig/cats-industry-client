@@ -1,10 +1,5 @@
 import {Action} from "redux";
-
-export interface Job {
-    product: string;
-    runs: number;
-    activity: string;
-}
+import {Job} from "../../schema/job";
 
 export interface JobsState {
     list: Job[];

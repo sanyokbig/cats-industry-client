@@ -1,6 +1,6 @@
-import {User} from "../store";
 import {Action} from "redux";
 import {AuthActions} from "./actions";
+import {User} from "../../schema/user";
 
 export interface AuthState {
     roles: string[];
