@@ -3,22 +3,26 @@ import {AppState} from "../state/store";
 import {connect, Dispatch} from "react-redux";
 import {User} from "../schema/user";
 import {CharactersList} from "../components/Characters";
+import {login} from "../auth/login";
+import {Button, Container} from "reactstrap";
 
 interface UserPageProps {
     dispatch: Dispatch<object>;
     user: User;
+    loggedIn: boolean;
 }
 
 let UserPage = (props: UserPageProps) => (
-    <div>
+    <Container>
         {props.user && <CharactersList list={props.user.characters}/>}
-    </div>
+        {props.loggedIn && <Button onClick={login}>Add character</Button>}
+    </Container>
 );
 
 const mapStateToProps = (state: AppState) => {
-    const {user} = state.auth;
+    const {user, loggedIn} = state.auth;
 
-    return {user};
+    return {user, loggedIn};
 };
 
 export default connect(mapStateToProps)(UserPage);
