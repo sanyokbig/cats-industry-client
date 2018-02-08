@@ -12,13 +12,6 @@ class Ws {
 
         this.socket.onopen = ev => {
             store.dispatch(setConnected(true));
-            const sid = localStorage.getItem("cats-industry.sid");
-
-            if (!sid) {
-                this.Send("get_sid");
-            } else {
-                this.Send("restore_session", {sid});
-            }
         };
 
         this.socket.onmessage = ev => {
@@ -53,6 +46,6 @@ class Ws {
 
 const ws = new Ws();
 
-ws.Open("ws://localhost:9962/ws");
+ws.Open("ws://localhost:9962/ws?sid=" + localStorage.getItem("cats-industry.sid"));
 
 export default ws;
