@@ -16,6 +16,11 @@ const login = () => {
     ws.Send("login_request", {scope_set: "simple", sid: localStorage.getItem("cats-industry.sid")});
 };
 
+const logoff = () => {
+    ws.Send("logoff_request");
+};
+
 export {
-    login
+    login,
+    logoff
 };

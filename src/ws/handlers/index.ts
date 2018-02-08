@@ -1,6 +1,6 @@
 import {loginUri} from "./loginUri";
 import {sid} from "./sid";
-import {auth} from "./auth";
+import {auth, logoffOk, logoffFail} from "./auth";
 
 interface Payload {
     type: string;
@@ -11,6 +11,8 @@ const handlers: { [key: string]: (payload: any) => void } = {
     login_uri: loginUri,
     sid: sid,
     auth: auth,
+    logoff_fail: logoffFail,
+    logoff_ok: logoffOk
 };
 
 export const HandleMessage = (msg: Payload) => {
