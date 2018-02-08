@@ -77,7 +77,6 @@ class Jobs extends React.Component {
     }
 }
 
-const connector = connect<{}, {}, JobsProps>(mapStateToProps);
-const connected = connector(Jobs);
+const connected = connect<{}, {}, JobsProps>(mapStateToProps)(Jobs);
 
 export default connected;
