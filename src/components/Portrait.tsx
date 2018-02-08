@@ -6,8 +6,10 @@ interface PortraitProps {
 }
 
 export const Portrait = (props: PortraitProps) => (
-    <img
-        src={"http://image.eveonline.com/Character/" + props.characterID + "_" + (props.size || "32") + ".jpg"}
-        alt="portrait"
-    />
+    <span style={{display: "flex", alignItems: "center", height: "100%"}}>
+        <img
+            src={"http://image.eveonline.com/Character/" + props.characterID + "_" + (props.size || "32") + ".jpg"}
+            alt="portrait"
+        />
+    </span>
 );

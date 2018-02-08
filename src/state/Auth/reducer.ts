@@ -24,6 +24,7 @@ export const reducer = (state: AuthState = initialState, action: Action & AuthRe
         case AuthActions.AUTH_SET_USER:
             return {
                 ...state,
+                loggedIn: true,
                 user: action.user || null
             };
         default:
