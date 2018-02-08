@@ -7,5 +7,7 @@ interface AuthPayload {
 }
 
 export const auth = (payload: AuthPayload) => {
-    store.dispatch(setUser(payload.user));
+    if (payload.user) {
+        store.dispatch(setUser(payload.user));
+    }
 };
