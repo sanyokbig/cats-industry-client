@@ -1,6 +1,6 @@
 import {loginUri} from "./loginUri";
 import {sid} from "./sid";
-import {restoration} from "./restoration";
+import {auth} from "./auth";
 
 interface Payload {
     type: string;
@@ -10,7 +10,7 @@ interface Payload {
 const handlers: { [key: string]: (payload: any) => void } = {
     login_uri: loginUri,
     sid: sid,
-    restoration: restoration,
+    auth: auth,
 };
 
 export const HandleMessage = (msg: Payload) => {
