@@ -6,7 +6,7 @@ import {Portrait} from "./Portrait";
 const CharacterRow = (props: Character) => (
     <tr key={props.name}>
         <th key="portrait"><Portrait characterID={props.id} size="32"/></th>
-        <th key="name">{props.name}</th>
+        <th key="name" style={{fontWeight: props.is_main ? "bold" : "normal"}}>{props.name}</th>
     </tr>
 );
 
