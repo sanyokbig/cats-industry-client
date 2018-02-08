@@ -46,24 +46,21 @@ class Header extends React.Component {
         }
         return (
             <Navbar color="primary" dark expand="md">
-                <NavbarBrand tag={Link} to="/">Cats-industry</NavbarBrand>
+                <NavbarBrand tag={Link} to="/"><WsState/> Cats-industry</NavbarBrand>
                 <NavbarToggler onClick={this.toggle}/>
                 <Collapse isOpen={this.state.isOpen} navbar>
                     <Nav className="mr-auto" navbar>
                         <NavItem>
                             <NavLink tag={Link} to="/user">User</NavLink>
                         </NavItem>
-                        <NavItem>
-                            {
-                                loggedIn
-                                    ? <Portrait characterID={mainID} size={"32"}/>
-                                    : <Button onClick={login}>Login</Button>
-
-                            }
-                        </NavItem>
                     </Nav>
+                    {
+                        loggedIn
+                            ? <Portrait characterID={mainID} size={"32"}/>
+                            : <Button onClick={login}>Login</Button>
+
+                    }
                 </Collapse>
-                <WsState/>
             </Navbar>
         );
     }
