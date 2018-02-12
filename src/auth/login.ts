@@ -1,5 +1,10 @@
 import ws from "../ws/socket";
 
+const scopeSets = {
+    simple: "simple",
+    industrialist: "industrialist"
+};
+
 const openAuthWindow = () => {
     const width = 800,
         height = 600,
@@ -13,7 +18,7 @@ const openAuthWindow = () => {
 const login = () => {
     openAuthWindow();
 
-    ws.Send("login_request", {scope_set: "simple", sid: localStorage.getItem("cats-industry.sid")});
+    ws.Send("login_request", {scope_set: scopeSets.simple, sid: localStorage.getItem("cats-industry.sid")});
 };
 
 const logoff = () => {
