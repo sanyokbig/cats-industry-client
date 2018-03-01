@@ -8,7 +8,7 @@ interface WsStateArguments {
 
 const WsState = ({connected}: WsStateArguments) => (
     <span>
-        <i className={"fa fa-circle " + (connected ? "text-success" : "text-danger")}/>
+        <i className={"fas fa-circle " + (connected ? "text-success" : "text-danger")}/>
     </span>
 );
 

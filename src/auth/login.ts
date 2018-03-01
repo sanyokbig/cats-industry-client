@@ -2,7 +2,8 @@ import ws from "../ws/socket";
 
 const scopeSets = {
     simple: "simple",
-    industrialist: "industrialist"
+    industrial: "industrial",
+    mailing: "mailing"
 };
 
 const openAuthWindow = () => {
@@ -21,11 +22,24 @@ const login = () => {
     ws.Send("login_request", {scope_set: scopeSets.simple, sid: localStorage.getItem("cats-industry.sid")});
 };
 
+const loginIndustrial = () => {
+    openAuthWindow();
+
+    ws.Send("login_request", {scope_set: scopeSets.industrial, sid: localStorage.getItem("cats-industry.sid")});
+};
+const loginMailing = () => {
+    openAuthWindow();
+
+    ws.Send("login_request", {scope_set: scopeSets.mailing, sid: localStorage.getItem("cats-industry.sid")});
+};
+
 const logoff = () => {
     ws.Send("logoff_request");
 };
 
 export {
     login,
+    loginIndustrial,
+    loginMailing,
     logoff
 };
