@@ -7,9 +7,11 @@ import App from "./App";
 import "./index.css";
 import fontAwesome from "@fortawesome/fontawesome";
 import * as envelope from "@fortawesome/fontawesome-free-solid/faEnvelope";
+import * as circle from "@fortawesome/fontawesome-free-solid/faCircle";
 import registerServiceWorker from "./registerServiceWorker";
 
 fontAwesome.library.add(envelope);
+fontAwesome.library.add(circle);
 
 ReactDOM.render(
     <Provider store={store}>
