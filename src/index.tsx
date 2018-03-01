@@ -5,9 +5,11 @@ import {BrowserRouter} from "react-router-dom";
 import {store} from "./state/store";
 import App from "./App";
 import "./index.css";
-import "font-awesome/css/font-awesome.css";
-
+import fontAwesome from "@fortawesome/fontawesome";
+import * as envelope from "@fortawesome/fontawesome-free-solid/faEnvelope";
 import registerServiceWorker from "./registerServiceWorker";
+
+fontAwesome.library.add(envelope);
 
 ReactDOM.render(
     <Provider store={store}>
