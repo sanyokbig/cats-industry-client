@@ -46,6 +46,6 @@ class Ws {
 
 const ws = new Ws();
 
-ws.Open("ws://localhost:9962/ws?sid=" + localStorage.getItem("cats-industry.sid"));
+ws.Open("ws://catsindustryserver.localtunnel.me/ws?sid=" + localStorage.getItem("cats-industry.sid"));
 
 export default ws;
