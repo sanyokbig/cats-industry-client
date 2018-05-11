@@ -34,7 +34,7 @@ class GridRow extends React.Component {
 
     render() {
         return (
-            <tr>
+            <tr key={this.props.job.id}>
                 <th>{this.props.job.product}</th>
                 <th>{this.props.job.runs}</th>
                 <th>{this.props.job.activity}</th>
