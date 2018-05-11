@@ -17,6 +17,7 @@ export const setUser = (user: User): SetUserAction => ({
     type: AuthActions.AUTH_SET_USER,
     user
 });
+
 export const unsetUser = (): UnsetUserAction => ({
     type: AuthActions.AUTH_UNSET_USER
 });
