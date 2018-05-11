@@ -37,9 +37,14 @@ const logoff = () => {
     ws.Send("logoff_request");
 };
 
+const getJobs = () => {
+    ws.Send("get_jobs");
+};
+
 export {
     login,
     loginIndustrial,
     loginMailing,
-    logoff
+    logoff,
+    getJobs
 };
