@@ -1,6 +1,8 @@
 export interface Job {
     id: number;
-    product: string;
+    activity_name: string;
+    product_name: string;
     runs: number;
-    activity: string;
+    status: string;
+    end_date: number;
 }

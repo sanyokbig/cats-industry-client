@@ -34,10 +34,13 @@ class GridRow extends React.Component {
 
     render() {
         return (
-            <tr key={this.props.job.id}>
-                <th>{this.props.job.product}</th>
+            <tr>
+                <th>{this.props.job.id}</th>
+                <th>{this.props.job.product_name}</th>
                 <th>{this.props.job.runs}</th>
-                <th>{this.props.job.activity}</th>
+                <th>{this.props.job.status}</th>
+                <th>{this.props.job.activity_name}</th>
+                <th>{new Date(this.props.job.end_date * 1000).toUTCString()}</th>
             </tr>
         );
     }
@@ -62,7 +65,7 @@ class Jobs extends React.Component {
 
     render() {
         const rows = this.props.list.map(j => (
-            <GridRow job={j}/>
+            <GridRow job={j} key={j.id}/>
         ));
         return (
             <div>
@@ -70,9 +73,12 @@ class Jobs extends React.Component {
                 <Table responsive>
                     <thead>
                     <tr>
+                        <SortableHeader sortBy="id">ID</SortableHeader>
                         <SortableHeader sortBy="product">Product</SortableHeader>
                         <SortableHeader sortBy="runs">Runs</SortableHeader>
+                        <SortableHeader sortBy="status">Status</SortableHeader>
                         <SortableHeader sortBy="activity">Activity</SortableHeader>
+                        <SortableHeader sortBy="end_date">End date</SortableHeader>
                     </tr>
                     </thead>
                     <tbody>
